@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Data Visualisation">
+    <meta name="keywords" content="HTML, CSS, D3">
+    <meta name="author" content="Your Name">
+    <title>Task 2.3 D3 Scatter Plots</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="../lab1/stylesheet.css"> <!-- Assuming the stylesheet is used like in previous examples -->
+</head>
+<body>
+    <header class="cos30045-site-header">
+        <div class="cos30045-header-container">
+            <div class="cos30045-logo">
+                <h1>COS30045 Lab Tutorial</h1>
+            </div>
+            <nav class="cos30045-main-nav">
+                <ul class="cos30045-nav-list">
+                    <li><a href="../../index.html" class="cos30045-nav-link">Home</a></li>
+                    <li class="cos30045-dropdown">
+                        <a href="#" class="cos30045-dropbtn cos30045-nav-link">Labs</a>
+                        <div class="cos30045-dropdown-content">
+                            <a href="../lab2/lab2.1.html" class="cos30045-dropdown-link">Lab 2.1</a>
+                            <a href="../lab2/lab2.2.html" class="cos30045-dropdown-link">Lab 2.2</a>
+                            <a href="../lab2/lab2.3.html" class="cos30045-dropdown-link">Lab 2.3</a>
+                            <a href="../lab2/lab2.4.html" class="cos30045-dropdown-link">Lab 2.4</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="cos30045-nav-link">Assignment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" role="main">
+        <div class="container">
+            <h1 class="centered-header">Drawing with Data - Scatter Plots</h1>
+            <div class="content" id="chart-container">
+                <!-- The scatter plots will appear here -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="cos30045-site-footer">
+        <div class="cos30045-footer-container">
+            <p>&copy; 2024 COS30045 Labs - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // First chart
+        var w1 = 800;
+        var h1 = 150;
+        var padding1 = 40;
+
+        var dataset1 = [
+            [5, 20], [480, 90], [250, 50], [100, 33], [330, 95],
+            [410, 12], [475, 44], [25, 67], [85, 21], [220, 88]
+        ];
+
+        var svg1 = d3.select("#chart-container") // Bind the first chart inside the container
+            .append("svg")
+            .attr("width", w1)
+            .attr("height", h1);
+
+        svg1.selectAll("circle")
+            .data(dataset1)
+            .enter()
+            .append("circle")
+            .attr("cx", function(d) { 
+                return d[0]; 
+            })
+            .attr("cy", function(d) { 
+                return h1 - d[1]; // Invert y-axis
+            }) 
+            .attr("r", 5)
+            .attr("fill", function(d) {
+                return (d[0] > 400 || d[1] > 80) ? "red" : "steelblue";
+            });
+
+        svg1.selectAll("text")
+            .data(dataset1)
+            .enter()
+            .append("text")
+            .text(function(d) { 
+                return "(" + d[0] + "," + d[1] + ")"; 
+            })
+            .attr("x", function(d) { 
+                return d[0] + 10; 
+            })
+            .attr("y", function(d) { 
+                return h1 - d[1] - 10; 
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("fill", "black");
+
+        // Separation line
+        d3.select("#chart-container")
+            .append("hr")
+            .style("margin", "20px 0");
+
+        // Second chart -- Optional
+        var w2 = 600;
+        var h2 = 300;
+        var padding2 = 40;
+
+        var dataset2 = [
+            [5, 20, 10],
+            [480, 90, 15],
+            [250, 50, 7],
+            [100, 33, 20],
+            [330, 95, 12],
+            [410, 12, 8],
+            [475, 44, 5],
+            [25, 67, 18],
+            [85, 21, 13],
+            [220, 88, 9]
+        ];
+
+        var svg2 = d3.select("#chart-container") // Bind the second chart inside the container
+            .append("svg")
+            .attr("width", w2)
+            .attr("height", h2);
+
+        var xScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset2, d => d[0])])
+            .range([padding2, w2 - padding2]);
+
+        var yScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset2, d => d[1])])
+            .range([h2 - padding2, padding2]);
+
+        var rScale = d3.scaleLinear()
+            .domain([0, d3.max(dataset2, d => d[2])])
+            .range([2, 10]);
+
+        svg2.selectAll("circle")
+            .data(dataset2)
+            .enter()
+            .append("circle")
+            .attr("cx", d => xScale(d[0]))
+            .attr("cy", d => yScale(d[1]))
+            .attr("r", d => rScale(d[2]))
+            .attr("fill", d => {
+                return (d[0] > 400 || d[1] > 80) ? "red" : "steelblue";
+            });
+
+        svg2.selectAll("text")
+            .data(dataset2)
+            .enter()
+            .append("text")
+            .text(d => "(" + d[0] + "," + d[1] + ")")
+            .attr("x", d => xScale(d[0]) + 10)
+            .attr("y", d => yScale(d[1]))
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("fill", "black");
+
+        svg2.append("g")
+            .attr("transform", "translate(0," + (h2 - padding2) + ")")
+            .call(d3.axisBottom(xScale));
+
+        svg2.append("g")
+            .attr("transform", "translate(" + padding2 + ",0)")
+            .call(d3.axisLeft(yScale));
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Data Visualisation Exercise 1">
+    <meta name="keywords" content="HTML, CSS">
+    <meta name="author" content="Lee Thean Verlynn">
+    <title>Lab 1.2: Pet Ownership Trends</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <header class="cos30045-site-header">
+        <div class="cos30045-header-container">
+            <div class="cos30045-logo">
+                <h1>COS30045 Lab Tutorial</h1>
+            </div>
+            <nav class="cos30045-main-nav">
+                <ul class="cos30045-nav-list">
+                    <li><a href="../../index.html" class="cos30045-nav-link">Home</a></li>
+                    <li class="cos30045-dropdown">
+                        <a href="#" class="cos30045-dropbtn cos30045-nav-link">Labs</a>
+                        <div class="cos30045-dropdown-content">
+                            <a href="../lab1/lab1.1.html" class="cos30045-dropdown-link">Lab 1.1</a>
+                            <a href="../lab1/lab1.2.html" class="cos30045-dropdown-link">Lab 1.2</a>
+                            <a href="../lab1/lab1.3.html" class="cos30045-dropdown-link">Lab 1.3</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="cos30045-nav-link">Assignment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="centered-header">
+            <h1>Pets and the Pandemic</h1>
+            <h2>A Study on Changing Pet Ownership Trends</h2>
+        </div>
+
+        <div class="content">
+            <p>A report from Animal Medicines Australia (AMA) has found that many Australians took the opportunity to introduce a pet into their household during the pandemic. Their survey indicated that there was a significant increase in the percent of households taking in a new dog, fish or bird.</p>
+
+            <div class="button-group">
+                <button class="button1" onclick="show('p2019.jpg', 'Fig 1. Percent of most popular pet owned by Australians in 2019', 'p2019')">2019</button>
+                <button class="button2" onclick="show('p2021.jpg', 'Fig 2. Percent of most popular pet owned by Australians in 2021', 'p2021')">2021</button>
+                <button class="button3" onclick="show('p2019_2021.jpg', 'Fig 3. Percent of most popular pet owned by Australians in 2019 and 2021', 'p2019_2021')">Both</button>
+            </div>
+
+            <figure>
+                <img id="ChartImg" style="width: 100%; display: none;">
+                <figcaption id="ChartCap"></figcaption>
+            </figure>
+
+            <script>
+                function show(Image, ImgDesc, ImgAlt) {
+                    document.getElementById('ChartImg').src = Image;
+                    document.getElementById('ChartImg').alt = ImgAlt;
+                    document.getElementById('ChartCap').innerHTML = ImgDesc;
+                    document.getElementById("ChartImg").style.display = 'block';
+                }
+            </script>
+
+            <h2>Positive Influences of Pets</h2>
+            <p>The AMA's research indicated that pets had a number of positive influences on their owners' lives, such as:</p>
+            <ul>
+                <li>Companionship</li>
+                <li>Better mental health</li>
+                <li>Joy and happiness</li>
+            </ul>
+
+            <h2>Policy Implications</h2>
+            <p>With the increase in pet ownership, the AMA is encouraging policymakers to consider the needs of companion animals and their owners when considering:</p>
+            <ul>
+                <li>Rental regulations</li>
+                <li>Strata and body corporate regulations</li>
+                <li>Accepting animals in public places and transport</li>
+            </ul>
+
+            <p>For more information on pet ownership trends, visit the <a href="https://animalmedicinesaustralia.org.au/" target="_blank">Animal Medicines Australia website</a>.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 COS30045 Data Visualisation | Data source: COS30045 Data Visualisation</p>
+    </footer>
+</body>
+
+</html>

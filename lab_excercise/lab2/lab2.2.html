@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Data Visualisation">
+    <meta name="keywords" content="HTML, CSS, D3">
+    <meta name="author" content="Lee Thean Verlynn">
+    <title>Task 2.2 D3 Bar Chart</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="../lab1/stylesheet.css"> <!-- Assuming a stylesheet is used like in lab 2.1 -->
+</head>
+<body>
+    <header class="cos30045-site-header">
+        <div class="cos30045-header-container">
+            <div class="cos30045-logo">
+                <h1>COS30045 Lab Tutorial</h1>
+            </div>
+            <nav class="cos30045-main-nav">
+                <ul class="cos30045-nav-list">
+                    <li><a href="../../index.html" class="cos30045-nav-link">Home</a></li>
+                    <li class="cos30045-dropdown">
+                        <a href="#" class="cos30045-dropbtn cos30045-nav-link">Labs</a>
+                        <div class="cos30045-dropdown-content">
+                            <a href="../lab2/lab2.1.html" class="cos30045-dropdown-link">Lab 2.1</a>
+                            <a href="../lab2/lab2.2.html" class="cos30045-dropdown-link">Lab 2.2</a>
+                            <a href="../lab2/lab2.3.html" class="cos30045-dropdown-link">Lab 2.3</a>
+                            <a href="../lab2/lab2.4.html" class="cos30045-dropdown-link">Lab 2.4</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="cos30045-nav-link">Assignment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" role="main">
+        <div class="container">
+            <h1 class="centered-header">Drawing with Data</h1>
+            <div class="content" id="chart-container">
+                <!-- This div will contain the D3-generated bar chart -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="cos30045-site-footer">
+        <div class="cos30045-footer-container">
+            <p>&copy; 2024 COS30045 Labs - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        var w = 500;
+        var h = 100;
+        var dataset = [14, 5, 26, 23, 9];
+        var barPadding = 1;
+
+        var svg = d3.select("#chart-container") // Bind the SVG to the div with id="chart-container"
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("x", function(d, i) {
+                return i * (w / dataset.length);
+            })
+            .attr("y", function(d) {
+                return h - (d * 4);
+            })
+            .attr("width", w / dataset.length - barPadding)
+            .attr("height", function(d) {
+                return d * 4; 
+            })
+            .attr("fill", function(d) {
+                return "rgb(0, 0, " + Math.round(d * 10) + ")";
+            });
+
+        // Add labels
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function(d) {
+                return d;
+            })
+            .attr("x", function(d, i) {
+                return i * (w / dataset.length) + (w / dataset.length - barPadding) / 2;
+            })
+            .attr("y", function(d) {
+                return h - (d * 4) + 14;
+            })
+            .attr("font-family", "sans-serif")
+            .attr("font-size", "11px")
+            .attr("fill", "white")
+            .attr("text-anchor", "middle");
+    </script>
+</body>
+</html>

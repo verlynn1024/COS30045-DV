@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Data Visualisation Exercise 1">
+    <meta name="keywords" content="HTML, SVG, Candy House, Bar Chart">
+    <meta name="author" content="Lee Thean Verlynn">
+	<link rel="stylesheet" href="stylesheet.css">
+    <title>Candy House with SVG and Sales Chart</title>
+</head>
+<body>
+    <header class="cos30045-site-header">
+        <div class="cos30045-header-container">
+            <div class="cos30045-logo">
+                <h1>COS30045 Lab Tutorial</h1>
+            </div>
+            <nav class="cos30045-main-nav">
+                <ul class="cos30045-nav-list">
+                    <li><a href="../../index.html" class="cos30045-nav-link">Home</a></li>
+                    <li class="cos30045-dropdown">
+                        <a href="#" class="cos30045-dropbtn cos30045-nav-link">Labs</a>
+                        <div class="cos30045-dropdown-content">
+                            <a href="../lab1/lab1.1.html" class="cos30045-dropdown-link">Lab 1.1</a>
+                            <a href="../lab1/lab1.2.html" class="cos30045-dropdown-link">Lab 1.2</a>
+                            <a href="../lab1/lab1.3.html" class="cos30045-dropdown-link">Lab 1.3</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="cos30045-nav-link">Assignment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+	<div class="container">
+        <header class="centered-header">
+            <h1>Candy House with SVG and Sales Chart</h1>
+        </header>
+	<div class="content">
+    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+        <!-- House base -->
+        <rect x="100" y="200" width="200" height="150" fill="#FFB6C1" stroke="#FF69B4" stroke-width="8"/>
+        
+        <!-- Roof -->
+        <polygon points="100,200 200,100 300,200" fill="#FF69B4" stroke="#FF1493" stroke-width="8"/>
+        
+        <!-- Door -->
+        <rect x="175" y="270" width="50" height="80" fill="#8B4513" stroke="#A52A2A" stroke-width="4"/>
+        <circle cx="215" cy="310" r="5" fill="#FFD700"/>
+        
+        <!-- Windows -->
+        <rect x="125" y="230" width="40" height="40" fill="#87CEFA" stroke="#4169E1" stroke-width="4"/>
+        <rect x="235" y="230" width="40" height="40" fill="#87CEFA" stroke="#4169E1" stroke-width="4"/>
+        
+        <!-- Candy decorations -->
+        <circle cx="150" cy="180" r="15" fill="#FF0000" stroke="#8B0000" stroke-width="2"/>
+        <circle cx="250" cy="180" r="15" fill="#00FF00" stroke="#006400" stroke-width="2"/>
+        <rect x="90" y="340" width="220" height="10" fill="#8B4513" stroke="#A52A2A" stroke-width="2"/>
+        
+        <!-- Lollipops -->
+        <line x1="80" y1="350" x2="80" y2="250" stroke="#000000" stroke-width="8"/>
+        <circle cx="80" cy="250" r="25" fill="#FF69B4" stroke="#FF1493" stroke-width="4"/>
+        <line x1="320" y1="350" x2="320" y2="250" stroke="#000000" stroke-width="8"/>
+        <circle cx="320" cy="250" r="25" fill="#00CED1" stroke="#008B8B" stroke-width="4"/>
+    </svg>
+
+    <!-- Bar Chart -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+        <!-- Title -->
+        <text x="200" y="30" text-anchor="middle" font-size="16" font-weight="bold">Candy Sales Chart</text>
+
+        <!-- Y-axis -->
+        <line x1="50" y1="50" x2="50" y2="250" stroke="black" />
+        <text x="45" y="50" text-anchor="end" font-size="12">100</text>
+        <text x="45" y="150" text-anchor="end" font-size="12">50</text>
+        <text x="45" y="250" text-anchor="end" font-size="12">0</text>
+
+        <!-- X-axis -->
+        <line x1="50" y1="250" x2="350" y2="250" stroke="black" />
+
+        <!-- Bars -->
+        <rect x="75" y="100" width="50" height="150" fill="#FF69B4" />
+        <rect x="150" y="150" width="50" height="100" fill="#00CED1" />
+        <rect x="225" y="50" width="50" height="200" fill="#FF0000" />
+        <rect x="300" y="200" width="50" height="50" fill="#00FF00" />
+
+        <!-- Labels -->
+        <text x="100" y="270" text-anchor="middle" font-size="12">Lollipops</text>
+        <text x="175" y="270" text-anchor="middle" font-size="12">Gummies</text>
+        <text x="250" y="270" text-anchor="middle" font-size="12">Chocolates</text>
+        <text x="325" y="270" text-anchor="middle" font-size="12">Mints</text>
+    </svg>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">
+        <!-- Title -->
+        <text x="200" y="30" text-anchor="middle" font-size="16" font-weight="bold">Candy Sales Chart (Incremental)</text>
+    
+        <!-- Y-axis -->
+        <line x1="50" y1="50" x2="50" y2="250" stroke="black"></line>
+        <text x="45" y="50" text-anchor="end" font-size="12">100</text>
+        <text x="45" y="150" text-anchor="end" font-size="12">50</text>
+        <text x="45" y="250" text-anchor="end" font-size="12">0</text>
+    
+        <!-- X-axis -->
+        <line x1="50" y1="250" x2="350" y2="250" stroke="black"></line>
+    
+        <!-- Bars (arranged incrementally) -->
+        <rect x="75" y="225" width="50" height="25" fill="#00FF00"></rect>
+        <rect x="150" y="200" width="50" height="50" fill="#00CED1"></rect>
+        <rect x="225" y="150" width="50" height="100" fill="#FF69B4"></rect>
+        <rect x="300" y="50" width="50" height="200" fill="#FF0000"></rect>
+    
+        <!-- Labels -->
+        <text x="100" y="270" text-anchor="middle" font-size="12">Mints</text>
+        <text x="175" y="270" text-anchor="middle" font-size="12">Gummies</text>
+        <text x="250" y="270" text-anchor="middle" font-size="12">Lollipops</text>
+        <text x="325" y="270" text-anchor="middle" font-size="12">Chocolates</text>
+    </svg>
+
+	<h3>Customizing the Bar Chart</h3>
+    <p>
+        To customize this bar chart, you can make the following adjustments in the SVG code:
+        <ul>
+            <li>Change bar values by modifying the <code>height</code> and <code>y</code> attributes of the <code>&lt;rect&gt;</code> elements. </li>
+            <li>Alter bar colors by changing the <code>fill</code> attribute of the <code>&lt;rect&gt;</code> elements. </li>
+            <li>Resize the entire chart by adjusting the <code>width</code> and <code>height</code> attributes of the main <code>&lt;svg&gt;</code> element. </li>
+        </ul>
+    </p>
+	</div>
+    
+</div>
+<footer>
+    <p>© 2024 COS30045 Data Visualisation | Data source: COS30045 Data Visualisation</p>
+</footer>
+</body>
+</html>
