@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 4.1 - Design Studio Activity</title>
+    <link rel="stylesheet" href="../lab1/stylesheet.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header class="cos30045-site-header">
+        <div class="cos30045-header-container">
+            <div class="cos30045-logo">
+                <h1>COS30045 Lab Tutorial</h1>
+            </div>
+            <nav class="cos30045-main-nav">
+                <ul class="cos30045-nav-list">
+                    <li><a href="../../index.html" class="cos30045-nav-link">Home</a></li>
+                    <li class="cos30045-dropdown">
+                        <a href="#" class="cos30045-dropbtn cos30045-nav-link">Labs</a>
+                        <div class="cos30045-dropdown-content">
+                            <a href="../lab4/lab4.1.html" class="cos30045-dropdown-link">Lab 4.1</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="cos30045-nav-link">Assignment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" role="main">
+        <div class="container">
+            <h1 class="centered-header"> Design Studio Activity </h1>
+            <div id="content-box" class="content">
+                <div id="chart-container"></div>
+                
+                <div id="question-answer-section">                
+                    <div class="qa-card">
+                        <div class="qa-card-header">
+                            <h3>Question 1:</h3>
+                        </div>
+                        <div class="qa-card-body">
+                            <p>How does the distribution of road fatalities vary across different road types and speed limits?</p>
+                            <h4>Answer:</h4>
+                            <figure>
+                                <img src="q1.jpg" class="content-image" alt="Distribution of road fatalities vary across different road types and speed limits" />
+                                <figcaption>Fig 1. Distribution of road fatalities vary across different road types and speed limits</figcaption>
+                            </figure>
+                            <ul>
+                                <li>X-axis (Category): Road Type (Column "National Road Type")</li>
+                                <li>Y-axis (Values): Count of fatalities (Count of "Crash ID")</li>
+                                <li>Legend: Speed Limit (Column "Speed Limit")</li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <div class="qa-card">
+                        <div class="qa-card-header">
+                            <h3>Question 2:</h3>
+                        </div>
+                        <div class="qa-card-body">
+                            <p>What is the relationship between time of day, day of the week, and the number of road fatalities?</p>
+                            <h4>Answer:</h4>
+                            <figure>
+                                <img src="q2.jpg" class="content-image" alt="relationship between time of day, day of the week, and the number of road fatalities" />
+                                <figcaption>Fig 2. Relationship between time of day, day of the week, and the number of road fatalities</figcaption>
+                            </figure>
+                            <ul>
+                                <li>X-axis (Category): Day of week (Column "Day of week")</li>
+                                <li>Y-axis (Values): Count of fatalities (Count of "Crash ID")</li>    
+                                <li>Legend: Time of day (Column "Time of day")</li>    
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <div class="qa-card">
+                        <div class="qa-card-header">
+                            <h3>Question 3:</h3>
+                        </div>
+                        <div class="qa-card-body">
+                            <p>How do road fatalities differ across various age groups and remoteness areas in Australia?</p>
+                            <h4>Answer:</h4>
+                            <figure>
+                                <img src="q3.png" class="content-image" alt="road fatalities differ across various age groups and remoteness areas in Australia" />
+                                <figcaption>Fig 3. Road fatalities differ across various age groups and remoteness areas in Australia</figcaption>
+                            </figure>
+                            <ul>
+                                <li>X-axis (Category): Age Group (Column "Age Group")</li>
+                                <li>Y-axis (Values): Count of fatalities (Count of "Crash ID")</li>
+                                <li>Legend: National Remoteness Areas (Column "National Remoteness Areas")</li>
+                            </ul>
+                        </div>
+                    </div>
+                
+                    <div class="qa-card">
+                        <div class="qa-card-header">
+                            <h3>Question 4:</h3>
+                        </div>
+                        <div class="qa-card-body">
+                            <p>Make a sketch of how you think your visualisation might look and add it to this document.</p>
+                            <h4>Answer:</h4>
+                            <p>A dashboard containing:</p>
+                            <ol>
+                                <li>Line chart: Fatalities over time</li>
+                                <li>Bar chart: Fatalities by state</li>
+                                <li>Pie chart: Fatalities by road user type</li>
+                            </ol>
+                            <p>Note: The actual visualization would be implemented using D3.js or a similar library.</p>
+                        </div>
+                    </div>
+                
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="cos30045-footer-container">
+        <p>&copy; 2024 COS30045 Data Visualisation | Data source: COS30045 Data Visualisation</p>
+    </footer>
+</body>
+</html>

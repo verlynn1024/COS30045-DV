@@ -141,7 +141,7 @@ body {
 
 .centered-header {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 
@@ -163,6 +163,59 @@ figcaption {
     font-style: italic;
     color: #666;
     margin-top: 10px;
+}
+
+/* Card-style for Question and Answer Section */
+#question-answer-section {
+    margin-top: 30px;
+}
+
+.qa-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.qa-card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.qa-card-header {
+    background-color: var(--primary);
+    color: var(--text-light);
+    padding: 15px 20px;
+}
+
+.qa-card-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.qa-card-body {
+    padding: 20px;
+}
+
+.qa-card-body h4 {
+    color: var(--secondary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.qa-card-body p {
+    margin-bottom: 15px;
+}
+
+.qa-card-body ul, .qa-card-body ol {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.qa-card-body li {
+    margin-bottom: 5px;
 }
 
 /* Other styles */
@@ -253,5 +306,24 @@ footer {
 
     h2 {
         font-size: 1.6em;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .qa-card-header {
+        padding: 10px 15px;
+    }
+
+    .qa-card-header h3 {
+        font-size: 1.1em;
+    }
+
+    .qa-card-body {
+        padding: 15px;
+    }
+
+    .qa-card-body h4 {
+        font-size: 1em;
     }
 }
