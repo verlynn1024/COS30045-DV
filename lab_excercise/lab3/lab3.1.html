@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 3.1 - Scatter Plot with Scaling</title>
+    <link rel="stylesheet" href="../lab1/stylesheet.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header class="cos30045-site-header">
+        <div class="cos30045-header-container">
+            <div class="cos30045-logo">
+                <h1>COS30045 Lab Tutorial</h1>
+            </div>
+            <nav class="cos30045-main-nav">
+                <ul class="cos30045-nav-list">
+                    <li><a href="../../index.html" class="cos30045-nav-link">Home</a></li>
+                    <li class="cos30045-dropdown">
+                        <a href="#" class="cos30045-dropbtn cos30045-nav-link">Labs</a>
+                        <div class="cos30045-dropdown-content">
+                            <a href="../lab3/lab3.1.html" class="cos30045-dropdown-link">Lab 3.1</a>
+                            <a href="../lab3/lab3.2.html" class="cos30045-dropdown-link">Lab 3.2</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="cos30045-nav-link">Assignment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" role="main">
+        <div class="container">
+            <h1 class="centered-header">Scatter Plot with Scaling</h1>
+            <div id="content-box" class="content">
+                <div id="chart-container"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="cos30045-footer-container">
+        <p>&copy; 2024 COS30045 Data Visualisation | Data source: COS30045 Data Visualisation</p>
+    </footer>
+
+    <script>
+        // Step 4: Demonstrate flexibility by adding outliers and allowing SVG size adjustment
+        // Data with outliers
+        const data = [
+            {x: 5, y: 20},
+            {x: 25, y: 67},
+            {x: 85, y: 21},
+            {x: 100, y: 33},
+            {x: 220, y: 88},
+            {x: 250, y: 50},
+            {x: 330, y: 95},
+            {x: 410, y: 12},
+            {x: 475, y: 44},
+            {x: 500, y: 90},
+            // Outliers added
+            {x: 1000, y: 200},
+            {x: 2, y: 5}
+        ];
+
+        // SVG dimensions - easily adjustable
+        const width = 800; // Increased from 600
+        const height = 600; // Increased from 400
+        const padding = 60;
+
+        // Create SVG
+        const svg = d3.select("#chart-container")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // Create scales with dynamic domain calculation and padding
+        const xScale = d3.scaleLinear()
+            .domain([d3.min(data, d => d.x), d3.max(data, d => d.x)])
+            .range([padding, width - padding]);
+        const yScale = d3.scaleLinear()
+            .domain([d3.min(data, d => d.y), d3.max(data, d => d.y)])
+            .range([height - padding, padding]);
+
+        // Create circles
+        svg.selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", d => xScale(d.x))
+            .attr("cy", d => yScale(d.y))
+            .attr("r", 5)
+            .attr("fill", "steelblue");
+
+        // Add labels
+        svg.selectAll("text.label")
+            .data(data)
+            .enter()
+            .append("text")
+            .attr("class", "label")
+            .text(d => `${d.x},${d.y}`)
+            .attr("x", d => xScale(d.x) + 10)
+            .attr("y", d => yScale(d.y) - 10)
+            .attr("font-size", "12px")
+            .attr("fill", "green");
+
+        // Add x-axis
+        const xAxis = d3.axisBottom(xScale);
+        svg.append("g")
+            .attr("transform", `translate(0, ${height - padding})`)
+            .call(xAxis);
+
+        // Add y-axis
+        const yAxis = d3.axisLeft(yScale);
+        svg.append("g")
+            .attr("transform", `translate(${padding}, 0)`)
+            .call(yAxis);
+
+        // Add title
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", padding / 2)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "20px")
+            .attr("font-weight", "bold")
+            .text("Drawing with Data - Scatter Plot with Outliers");
+
+        // Add author info
+        svg.append("text")
+            .attr("x", width / 2)
+            .attr("y", height - padding / 4)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "14px")
+            .text("© Lee Thean Verlynn | Data source: COS30045 Data Visualisation");
+
+        // Step 4
+        // 1. Outliers (1000, 200) and (2, 5) were added to the dataset.
+        //    The chart automatically adjusts to include these points without any manual scale adjustments.
+        // 2. The SVG size can be easily changed by modifying the 'width' and 'height' variables.
+        //    The chart scales accordingly, maintaining proper positioning and proportions.
+    </script>
+</body>
+</html>
