@@ -271,7 +271,7 @@ footer {
     flex-wrap: wrap; /* Ensures the buttons wrap to the next line on smaller screens */
 }
 
-#add-btn, #remove-btn, #update-btn, #smooth-transition-btn, #staggered-transition-btn, #bounce-transition-btn {
+#add-btn, #remove-btn, #update-btn, #smooth-transition-btn, #staggered-transition-btn, #bounce-transition-btn, #sort-btn {
     display: inline-block;
     margin: 0;
     padding: 10px 20px;
@@ -286,19 +286,19 @@ footer {
     letter-spacing: 1px;
 }
 
-#add-btn:hover, #remove-btn:hover, #update-btn:hover, #smooth-transition-btn:hover, #staggered-transition-btn:hover, #bounce-transition-btn:hover {
+#add-btn:hover, #remove-btn:hover, #update-btn:hover, #smooth-transition-btn:hover, #staggered-transition-btn:hover, #bounce-transition-btn:hover, #sort-btn:hover {
     background-color: var(--accent);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#add-btn:active, #remove-btn:active, #update-btn:active, #smooth-transition-btn:active, #staggered-transition-btn:active, #bounce-transition-btn:active {
+#add-btn:active, #remove-btn:active, #update-btn:active, #smooth-transition-btn:active, #staggered-transition-btn:active, #bounce-transition-btn:active, #sort-btn:active {
     transform: translateY(1px);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive design for button */
 @media (max-width: 768px) {
-    #add-btn, #remove-btn, #update-btn, #smooth-transition-btn, #staggered-transition-btn, #bounce-transition-btn {
+    #add-btn, #remove-btn, #update-btn, #smooth-transition-btn, #staggered-transition-btn, #bounce-transition-btn, #sort-btn {
         font-size: 0.9em;
         padding: 8px 16px;
     }
