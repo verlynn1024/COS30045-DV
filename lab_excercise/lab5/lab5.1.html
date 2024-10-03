@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Dynamic Bar Chart">
+    <meta name="keywords" content="HTML, CSS, D3, Dynamic, Bar Chart">
+    <meta name="author" content="Lee Thean Verlynn">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COS30045 Lab 5.1 - Dynamic Bar Chart</title>
+    <link rel="stylesheet" href="../lab1/stylesheet.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <header class="cos30045-site-header">
+        <div class="cos30045-header-container">
+            <div class="cos30045-logo">
+                <h1>COS30045 Lab Tutorial</h1>
+            </div>
+            <nav class="cos30045-main-nav">
+                <ul class="cos30045-nav-list">
+                    <li><a href="../../index.html" class="cos30045-nav-link">Home</a></li>
+                    <li class="cos30045-dropdown">
+                        <a href="#" class="cos30045-dropbtn cos30045-nav-link">Labs</a>
+                        <div class="cos30045-dropdown-content">
+                            <a href="../lab5/lab5.1.html" class="cos30045-dropdown-link">Lab 5.1</a>
+                            <a href="../lab5/lab5.2.html" class="cos30045-dropdown-link">Lab 5.2</a>
+                            <a href="../lab5/lab5.3.html" class="cos30045-dropdown-link">Lab 5.3</a>
+                        </div>
+                    </li>
+                    <li><a href="#" class="cos30045-nav-link">Assignment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content" role="main">
+        <div class="container">
+            <h1 class="centered-header">Drawing with Data - Dynamic Bar Chart</h1>
+            <div class="content" id="chart-container">
+                <div class="button-container">
+                    <button id="update-btn">Update Data</button>
+                </div>
+                <!-- This div will contain the D3-generated dynamic bar chart -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="cos30045-site-footer">
+        <div class="cos30045-footer-container">
+            <p>&copy; 2024 COS30045 Labs - All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="lab5.1.js"></script>
+</body>
+</html>
